@@ -20,6 +20,17 @@ When the bundled application is running with [JDK17](https://github.com/adoptium
 # j  com.frida.App.main([Ljava/lang/String;)V+8
 ```
 
+The Frida console provides a more descriptive error message:
+
+```javascript
+Is Java Available: true
+Error: Unable to make thread_from_jni_environment() helper for the current architecture
+    at <anonymous> (frida/node_modules/frida-java-bridge/lib/jvm.js:232)
+    at <anonymous> (frida/node_modules/frida-java-bridge/lib/jvm.js:276)
+    at <anonymous> (frida/node_modules/frida-java-bridge/lib/vm.js:12)
+    at j (frida/node_modules/frida-java-bridge/lib/jvm.js:291)
+```
+
 This crash happens despite the fact that Frida indicates the JDK is a compatible version.
 
 ```javascript
