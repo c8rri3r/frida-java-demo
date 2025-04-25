@@ -90,8 +90,11 @@ true
 Compile an executable jar file. Versions [11](https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.22%2B7/OpenJDK11U-jdk_x64_linux_hotspot_11.0.22_7.tar.gz), [16](https://github.com/adoptium/temurin16-binaries/releases/download/jdk-16.0.2%2B7/OpenJDK16U-jdk_x64_linux_hotspot_16.0.2_7.tar.gz) and [17](https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.12%2B7/OpenJDK17U-jdk_x64_linux_hotspot_17.0.12_7.tar.gz) of the JDK were tested. It doesn't seem to matter which version is used for compiling, although for consistency it's suggested to use the same one that'll be used during runtime.
 ```bash
 export JAVA_HOME=<JDK installation directory>
-mvn clean assembly:assembly -DdescriptorId=jar-with-dependencies -Dmaven.test.skip
+mvn clean package
 ```
+
+## Updates
+Updates to this issue are being tracked in GitHub issue (333)[https://github.com/frida/frida-java-bridge/issues/333].
 
 ## Example Frida Instrumentation Script
 The included Frida script `instrumentation-script.js` will hook the `someTest()` function and force it to always return `true`.
