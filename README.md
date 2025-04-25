@@ -7,7 +7,7 @@ This repo was originally created to assist with debugging an issue with Frida an
 When the bundled application is running with [JDK17](https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.12%2B7/OpenJDK17U-jdk_x64_linux_hotspot_17.0.12_7.tar.gz), hooking a method causes the JVM to crash with the following error message (trimmed for brevity):
 
 ```bash
-└─$ $JAVA_HOME/bin/java -jar target/frida-java-demo-1.0-SNAPSHOT-jar-with-dependencies.jar
+└─$ $JAVA_HOME/bin/java -jar target/frida-java-demo-1.0.jar
 [*] Checking status of someTest()...
 #
 # A fatal error has been detected by the Java Runtime Environment:
@@ -105,7 +105,7 @@ The included Frida script `instrumentation-script.js` will hook the `someTest()`
 2. Run the demo app using JDK17 to recreate the crash, or JDK11 (or JDK16) to successfully hook the method.
 ```bash
 export JAVA_HOME=<JDK installation directory>
-$JAVA_HOME/bin/java -jar target/frida-java-demo-1.0-SNAPSHOT-jar-with-dependencies.jar
+$JAVA_HOME/bin/java -jar target/frida-java-demo-1.0.jar
 ```
 3. Use the `ps` command to find the PID of the demo app.
 4. In a seperate terminal, execute Frida with the provided instrumentation script: 
@@ -114,7 +114,7 @@ $JAVA_HOME/bin/java -jar target/frida-java-demo-1.0-SNAPSHOT-jar-with-dependenci
 
 If all goes well, we should see the "Congrats" message on the Demo app.
 ```bash
-└─$ $JAVA_HOME/bin/java -jar target/frida-java-demo-1.0-SNAPSHOT-jar-with-dependencies.jar
+└─$ $JAVA_HOME/bin/java -jar target/frida-java-demo-1.0.jar
 [*] Checking status of someTest()...
 [*] Congrats, result has been changed!
 ```
