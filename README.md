@@ -94,9 +94,9 @@ mvn clean package
 ```
 
 ## Updates
-Updates to this issue are being tracked in GitHub issue (333)[https://github.com/frida/frida-java-bridge/issues/333].
+Updates to this issue are being tracked in GitHub issue [333](https://github.com/frida/frida-java-bridge/issues/333).
 
-**Edit 5/25/2025:** The Pull Request [#333](https://github.com/frida/frida-java-bridge/pull/350) added a patch to fix JDK17 hooking support. This fix is present in Frida version `16.5.6`, and possibly earlier versions. I created a write-up documenting the fix process located [here](https://www.crwaves.net/2025/05/19/patching-frida-jdk17-support/).
+**Edit 5/25/2025:** The Pull Request [#350](https://github.com/frida/frida-java-bridge/pull/350) added a patch to fix JDK17 hooking support. This fix is present in Frida version `16.5.6`, and possibly earlier versions. I created a write-up documenting the fix process located [here](https://www.crwaves.net/2025/05/19/patching-frida-jdk17-support/).
 
 ## Example Frida Instrumentation Script
 The included Frida script `instrumentation-script.js` will hook the `someTest()` function and force it to always return `true`.
