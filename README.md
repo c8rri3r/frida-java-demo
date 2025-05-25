@@ -7,7 +7,7 @@ This repo was originally created to assist with debugging an issue with Frida an
 When the bundled application is running with [JDK17](https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.12%2B7/OpenJDK17U-jdk_x64_linux_hotspot_17.0.12_7.tar.gz), hooking a method causes the JVM to crash with the following error message (trimmed for brevity):
 
 ```bash
-└─$ $JAVA_HOME/bin/java -jar target/frida-java-demo-1.0.jar
+└─$ $JAVA_HOME/bin/java -jar target/java-demo-1.0.jar
 [*] Checking status of someTest()...
 #
 # A fatal error has been detected by the Java Runtime Environment:
@@ -96,16 +96,17 @@ mvn clean package
 ## Updates
 Updates to this issue are being tracked in GitHub issue (333)[https://github.com/frida/frida-java-bridge/issues/333].
 
+**Edit 5/25/2025:** The Pull Request [#333](https://github.com/frida/frida-java-bridge/pull/350) added a patch to fix JDK17 hooking support. This fix is present in Frida version `16.5.6`, and possibly earlier versions. I created a write-up documenting the fix process located [here](https://www.crwaves.net/2025/05/19/patching-frida-jdk17-support/).
+
 ## Example Frida Instrumentation Script
 The included Frida script `instrumentation-script.js` will hook the `someTest()` function and force it to always return `true`.
-
 
 ## Usage
 1. Compile the application per the instructions above
 2. Run the demo app using JDK17 to recreate the crash, or JDK11 (or JDK16) to successfully hook the method.
 ```bash
 export JAVA_HOME=<JDK installation directory>
-$JAVA_HOME/bin/java -jar target/frida-java-demo-1.0.jar
+$JAVA_HOME/bin/java -jar target/java-demo-1.0.jar
 ```
 3. Use the `ps` command to find the PID of the demo app.
 4. In a seperate terminal, execute Frida with the provided instrumentation script: 
@@ -114,7 +115,7 @@ $JAVA_HOME/bin/java -jar target/frida-java-demo-1.0.jar
 
 If all goes well, we should see the "Congrats" message on the Demo app.
 ```bash
-└─$ $JAVA_HOME/bin/java -jar target/frida-java-demo-1.0.jar
+└─$ $JAVA_HOME/bin/java -jar target/java-demo-1.0.jar
 [*] Checking status of someTest()...
 [*] Congrats, result has been changed!
 ```
